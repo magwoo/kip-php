@@ -1,0 +1,36 @@
+version: '3'
+services:
+  php:
+    container_name: php
+    restart: always
+    build: .
+    volumes:
+      - ./pages:/var/www/pages
+      - ./static:/var/www/static
+    depends_on:
+      - "mysql"
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./pages:/var/www/pages
+      - ./static:/var/www/static
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php
+      - mysql
+
+  mysql:
+    container_name: mysql
+    image: mysql:8.3.0
+    restart: always
+    ports:
+      - ${DATABASE_PORT}:3306
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASS}
+      MYSQL_DATABASE: ${DATABASE_NAME}

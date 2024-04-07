@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("/static/assets/fonts/Montserrat-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/static/assets/fonts/Montserrat-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/static/assets/fonts/Lora-Regular.ttf");
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Montserrat;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 90px 0;
+}
+
+.first-screen {
+  height: 100vh;
+  clip-path: ellipse(100% 60% at 50% 35%);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.section-bg {
+  background: url(/static/assets/img/bg.svg);
+  color: #fff;
+}
+
+h1 {
+  font-family: Lora;
+  font-size: 80px;
+}
+
+.btn {
+    padding: 13px 20px;
+    color: #fff;
+    border: 2px solid transparent;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.btn-bg {
+	background: #c74838;
+}
+
+.btn-outline {
+  border-color: #c74838;
+}
+
+.chevron:hover {
+	transform: translate (-50%, 25px);
+}
+
+.chevron {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  /*transform: translate(-50%, 0);*/
+	transition: all 0.3s ease-in-out; /*Плавно сдвигается вниз*/
+}
+/*------------Сдвигаем стрелку вниз при наведении------------*/
+.chevron img {
+  transition: all 0.5s ease-in-out;
+}
+.chevron:hover img {
+  transform: translateY(25px);
+}
+/*----------конец сдвига стрелки вниз------------*/
+
+h2 {
+  font-family: Lora;
+  font-size: 48px;
+  margin: 0 0 60px;
+}
+
+p {
+  font-size: 20px;
+  line-height: 2;
+  font-family: Montserrat;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.img-wrapper {
+  width: 350px;
+  height: 290px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.img-wrapper:hover {
+	transform: scale(1.05);/*увеличение картинки на 5 %*/
+} 
+
+.img-wrapper img {
+  object-fit: cover;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.pr-4 {
+  padding-right: 4rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  padding: 15px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  border: none;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+  
+footer {
+  padding: 50px 0;
+  text-align: center;
+}
