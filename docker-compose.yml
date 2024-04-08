@@ -31,6 +31,7 @@ services:
       - ${DATABASE_PORT}:3306
     volumes:
       - ./data/mysql:/var/lib/mysql
+      - ./migration:/migration
     environment:
       MYSQL_ROOT_PASSWORD: ${DATABASE_PASS}
       MYSQL_DATABASE: ${DATABASE_NAME}
