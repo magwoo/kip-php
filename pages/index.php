@@ -4,7 +4,6 @@ require_once "db.php";
 
 $stmt = $pdo->query("SELECT * FROM works");
 $works = $stmt->fetchAll();
-
 ?>
 
 <!DOCTYPE html>
@@ -33,23 +32,25 @@ $works = $stmt->fetchAll();
       </section>
       <section>
         <div class="container">
-          <h2>Обо мне</h2>   
+          <h2>Обо мне</h2>
         <p>
           Вставить краткую автобиографию
         </p>
         <p>
           Перечислить профессиональные знания, умения, навыки
         </p>
-      </div> 
+      </div>
       </section>
       <section>
         <div class="container">
           <h2>Портфолио</h2>
 
           <div id="lightgallery" class="gallery">
-            <?php foreach($works as $work): ?>
-            <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="<?= $work['file_path'] ?>">
-                <img src="<?= $work['file_path'] ?>" />
+            <?php foreach ($works as $work): ?>
+            <a class="img-wrapper" data-sub-html="<?= $work[
+                "name"
+            ] ?>" href="<?= $work["file_path"] ?>">
+                <img src="<?= $work["file_path"] ?>" />
             </a>
             <?php endforeach; ?>
         </div>
@@ -58,11 +59,11 @@ $works = $stmt->fetchAll();
       <section class="section-bg">
       <div class="container">
         <div class="d-flex">
-          <div class="w-60 pr-4">        
+          <div class="w-60 pr-4">
               <h2>Давайте работать вместе</h2>
               <p>
                 Приглашаю к сотрудничеству! Пишите.
-              </p>      
+              </p>
           </div>
           <div class="w-40">
             <form action="feedback.php" method="POST">

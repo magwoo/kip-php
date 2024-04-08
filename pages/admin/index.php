@@ -7,7 +7,6 @@ $messages = $stmt->fetchAll();
 
 $stmt = $pdo->query("SELECT * FROM works");
 $works = $stmt->fetchAll();
-
 ?>
 
 <!DOCTYPE html>
@@ -42,12 +41,14 @@ $works = $stmt->fetchAll();
     <a href="add.php">Добавить</a>
 
     <div id="lightgallery" class="gallery">
-    <?php foreach ($works as $work) : ?>
+    <?php foreach ($works as $work): ?>
         <div class="admin-img-wrapper">
-            <a class="img-wrapper" data-sub-html="<?= $work['name'] ?>" href="<?= $work['file_path'] ?>">
-                    <img src="<?= $work['file_path'] ?>" />
+            <a class="img-wrapper" data-sub-html="<?= $work[
+                "name"
+            ] ?>" href="<?= $work["file_path"] ?>">
+                    <img src="<?= $work["file_path"] ?>" />
             </a>
-            <a href="remove.php?id=<?= $work['id'] ?>">Удалить</a>
+            <a href="remove.php?id=<?= $work["id"] ?>">Удалить</a>
         </div>
     <?php endforeach; ?>
     </div>
@@ -67,15 +68,15 @@ $works = $stmt->fetchAll();
                 <th>Дата и время</th>
             </tr>
 
-            <?php foreach ($messages as $key => $message) : ?>
+            <?php foreach ($messages as $key => $message): ?>
                 <tr>
                     <td><?= $key + 1 ?></td>
-                    <td><?= htmlspecialchars($message['name']) ?></td>
-                    <td><?= htmlspecialchars($message['email']) ?></td>
-                    <td><?= htmlspecialchars($message['text']) ?></td>
-                    <td><?= $message['created_at'] ?></td>
+                    <td><?= htmlspecialchars($message["name"]) ?></td>
+                    <td><?= htmlspecialchars($message["email"]) ?></td>
+                    <td><?= htmlspecialchars($message["text"]) ?></td>
+                    <td><?= $message["created_at"] ?></td>
                 </tr>
-            <?php endforeach; ?>           
+            <?php endforeach; ?>
         </table>
     </div>
 </body>

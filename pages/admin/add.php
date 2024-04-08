@@ -1,19 +1,16 @@
 <?php
 require_once "../db.php";
 
-if ( !empty($_POST['name']) ) {
-    $apppath = '/var/www';
-    $filepath = '/static/uploads/' . time() . basename($_FILES['file']['name']);
+if (!empty($_POST["name"])) {
+    $apppath = "/var/www";
+    $filepath = "/static/uploads/" . time() . basename($_FILES["file"]["name"]);
     $uploadfile = $apppath . $filepath;
 
-   $stmt = $pdo->prepare("INSERT INTO works(name, file_path) VALUES(?, ?)");
-   $stmt->execute([
-      $_POST['name'],
-      $filepath
-   ]);
-   move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
+    $stmt = $pdo->prepare("INSERT INTO works(name, file_path) VALUES(?, ?)");
+    $stmt->execute([$_POST["name"], $filepath]);
+    move_uploaded_file($_FILES["file"]["tmp_name"], $uploadfile);
 
-   header("Location: index.php");
+    header("Location: index.php");
 }
 ?>
 
