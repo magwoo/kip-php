@@ -13,4 +13,5 @@ if (
     $stmt->execute([$_POST["name"], $_POST["email"], $_POST["text"]]);
 }
 
-header("Location: index.php");
+header("Location: /");
+?>

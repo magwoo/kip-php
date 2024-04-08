@@ -10,7 +10,7 @@ if (!empty($_POST["name"])) {
     $stmt->execute([$_POST["name"], $filepath]);
     move_uploaded_file($_FILES["file"]["tmp_name"], $uploadfile);
 
-    header("Location: index.php");
+    header("Location: /admin");
 }
 ?>
 
