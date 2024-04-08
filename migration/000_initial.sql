@@ -16,4 +16,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
 	`text` TEXT NOT NULL
 );
 
+INSERT INTO works(`name`, `file_path`)
+    VALUES ('img1', '/static/uploads/placeholder.jpg');
+
 COMMIT;
